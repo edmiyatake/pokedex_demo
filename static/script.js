@@ -11,6 +11,7 @@ nameInput.addEventListener("keydown", (e) => {
 
 async function generatePokemon() {
   const name = nameInput.value.trim();
+
   const persona = personaSelect.value;
 
   if (!name) {
