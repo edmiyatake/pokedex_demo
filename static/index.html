@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Pokedex</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1>AI Pokedex</h1>
+
+    <div class="form">
+      <input id="name-input" type="text" placeholder="Enter a Pokemon name" />
+      <select id="persona-select">
+        <option value="a friendly, excited trainer">Excited Trainer</option>
+        <option value="a grumpy, no-nonsense scientist">Grumpy Scientist</option>
+        <option value="a calm, robotic AI assistant">Robotic AI</option>
+        <option value="a sarcastic teenager">Sarcastic Teen</option>
+      </select>
+      <button id="generate-btn">Generate</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div id="card" class="card hidden">
+      <div class="card-header">
+        <span id="card-name"></span>
+        <span id="card-number"></span>
+      </div>
+
+      <div class="card-section">
+        <h3>Stats</h3>
+        <ul id="card-stats"></ul>
+      </div>
+
+      <p id="card-description" class="card-description"></p>
+
+      <div class="card-section">
+        <h3>Details</h3>
+        <ul id="card-details"></ul>
+      </div>
+
+      <div class="card-section">
+        <h3>Type</h3>
+        <p id="card-types"></p>
+      </div>
+
+      <div class="card-section">
+        <h3>Weaknesses</h3>
+        <p id="card-weaknesses"></p>
+      </div>
+
+      <div class="card-section">
+        <h3>Evolutions</h3>
+        <p id="card-evolutions"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
