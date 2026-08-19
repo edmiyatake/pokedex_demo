@@ -2,60 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI Pokedex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <div class="app">
-    <h1>AI Pokedex</h1>
+  <main class="device" role="main">
 
-    <div class="form">
-      <input id="name-input" type="text" placeholder="Enter a Pokemon name" />
-      <select id="persona-select">
-        <option value="a friendly, excited trainer">Excited Trainer</option>
-        <option value="a grumpy, no-nonsense scientist">Grumpy Scientist</option>
-        <option value="a calm, robotic AI assistant">Robotic AI</option>
-        <option value="a sarcastic teenager">Sarcastic Teen</option>
-      </select>
-      <button id="generate-btn">Generate</button>
+    <div class="device-top">
+      <div class="lens" aria-hidden="true">
+        <span class="lens-glint"></span>
+      </div>
+      <div class="indicator-lights" aria-hidden="true">
+        <span class="light light-red"></span>
+        <span class="light light-yellow"></span>
+        <span class="light light-green"></span>
+      </div>
+      <h1 class="device-title">AI Pokedex</h1>
     </div>
 
-    <div id="status"></div>
+    <div class="screen">
+      <div class="screen-inner" id="screen-inner">
+        <div class="scanline" aria-hidden="true"></div>
 
-    <div id="card" class="card hidden">
-      <div class="card-header">
-        <span id="card-name"></span>
-        <span id="card-number"></span>
-      </div>
+        <form class="lookup-form" id="lookup-form">
+          <label class="field-label" for="name-input">Subject name</label>
+          <input
+            id="name-input"
+            type="text"
+            placeholder="e.g. Pikachu, or make one up"
+            autocomplete="off"
+          />
 
-      <div class="card-section">
-        <h3>Stats</h3>
-        <ul id="card-stats"></ul>
-      </div>
+          <label class="field-label" for="persona-select">Dex voice</label>
+          <select id="persona-select">
+            <option value="a friendly, excited trainer">Excited Trainer</option>
+            <option value="a grumpy, no-nonsense scientist">Grumpy Scientist</option>
+            <option value="a calm, robotic AI assistant">Robotic AI</option>
+            <option value="a sarcastic teenager">Sarcastic Teen</option>
+          </select>
 
-      <p id="card-description" class="card-description"></p>
+          <button type="submit" id="generate-btn">
+            <span class="btn-label">Scan</span>
+          </button>
+        </form>
 
-      <div class="card-section">
-        <h3>Details</h3>
-        <ul id="card-details"></ul>
-      </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
 
-      <div class="card-section">
-        <h3>Type</h3>
-        <p id="card-types"></p>
-      </div>
+        <section id="card" class="card hidden" aria-live="polite">
+          <div class="card-header">
+            <span id="card-name" class="card-name"></span>
+            <span id="card-number" class="card-number"></span>
+          </div>
 
-      <div class="card-section">
-        <h3>Weaknesses</h3>
-        <p id="card-weaknesses"></p>
-      </div>
+          <div class="card-types" id="card-types"></div>
 
-      <div class="card-section">
-        <h3>Evolutions</h3>
-        <p id="card-evolutions"></p>
+          <p id="card-description" class="card-description"></p>
+
+          <div class="stat-block">
+            <h2 class="section-label">Stats</h2>
+            <div id="card-stats" class="stat-list"></div>
+          </div>
+
+          <div class="detail-grid">
+            <h2 class="section-label detail-grid-label">Details</h2>
+            <dl id="card-details" class="detail-list"></dl>
+          </div>
+
+          <div class="tag-row">
+            <div class="tag-group">
+              <h2 class="section-label">Weak to</h2>
+              <p id="card-weaknesses" class="tag-value"></p>
+            </div>
+            <div class="tag-group">
+              <h2 class="section-label">Abilities</h2>
+              <p id="card-abilities" class="tag-value"></p>
+            </div>
+          </div>
+
+          <div class="evolution-row">
+            <h2 class="section-label">Evolution line</h2>
+            <p id="card-evolutions" class="evolution-value"></p>
+          </div>
+        </section>
       </div>
     </div>
-  </div>
+
+    <div class="device-bottom" aria-hidden="true">
+      <div class="dpad">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="round-buttons">
+        <span class="round-btn round-btn-a"></span>
+        <span class="round-btn round-btn-b"></span>
+      </div>
+      <div class="grille">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+  </main>
 
   <script src="/static/script.js"></script>
 </body>
